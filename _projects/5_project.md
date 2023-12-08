@@ -1,10 +1,11 @@
 ---
 layout: page
-title: project 5
-description: a project with a background image
-img: assets/img/1.jpg
+title: TetrArm
+description: Custom simulation environment using ELMA and ENVIRO Docker images and Finite State Machines in C++
+img: assets/img/projects/course/TetrArm.jpg
+redirect: https://github.com/SanjarNormuradov/TetrArm
 importance: 3
-category: fun
+category: course
 ---
 
 Every project has a beautiful feature showcase page.

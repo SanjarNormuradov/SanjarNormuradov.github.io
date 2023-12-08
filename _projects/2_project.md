@@ -1,29 +1,19 @@
 ---
 layout: page
-title: project 2
-description: a project with a background image and giscus comments
-img: assets/img/3.jpg
+title: Robotic Arm
+description: <b>Bachelor's Thesis</b>. <br> Portable, with 5-DoF and enhanced maneuverability to handle versatile objects, featuring a human-mimetic end-effector for advanced research in Mechatronics. 
+img: assets/img/projects/work/robotic_arm/robotic_arm.jpeg
 importance: 2
 category: work
-giscus_comments: true
+giscus_comments: false
 ---
+[Thesis [Russian]](https://github.com/username/repository/blob/main/path/to/your/resume.pdf)
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
-
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
-
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
-
+The development process consisted of three stages:
+1. <b>Mechanical Desgin:</b> I 3D designed and printed the robot's frame using CAD and FDM/FFF technologies on Tevo Flash/Tornado printers. I selected materials like PLA, PETG, TPU, and Nylon to enhance the robot's functionality and portability, addressing the inefficiency and weight issues of the existing model.
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/projects/robotic_arm/mech_process1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}

@@ -1,10 +1,10 @@
 ---
 layout: page
-title: project 4
-description: another without an image
-img:
+title: Autonomous Robotics
+description: Self-Driving Car & AI-Robotics
+img: assets/img/projects/course/mushr_car3.jpeg
 importance: 3
-category: fun
+category: course
 ---
 
 Every project has a beautiful feature showcase page.
