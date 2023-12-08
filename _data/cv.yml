@@ -68,7 +68,7 @@
       maindescription: |
         <b>Bachelor Thesis, Robotic Arm</b>
         <br>
-        Developed a sophisticated 5-DoF portable Robotic Arm, with enhanced maneuverability, and versatile object handling, featuring a human-mimetic end-effector for advanced Mechatronics research.
+        Developed a 5-DoF portable Robotic Arm, with enhanced maneuverability and versatile object handling, featuring a human-mimetic end-effector for advanced research in Mechatronics.
         <br><br>
       description:
         - <b>Mechanical Engineering</b>. Utilized CAD and FDM/FFF 3D printing technologies on Tevo Flash/Tornado 3D printers, employing diverse filaments (PLA, PETG, TPU, Nylon), to optimize the robot's frame for functionality and portability.
@@ -245,11 +245,11 @@
       items:
         - name: Git
           level: Intermediate level..
-        - name: Numpy
+        - name: Docker
           level: Intermediate level..
         - name: PyTorch
           level: Intermediate level..
-        - name: Docker
+        - name: Numpy
           level: Intermediate level..
 
     - category: Simulation
