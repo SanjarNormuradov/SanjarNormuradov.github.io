@@ -14,14 +14,12 @@
       institution: University of Washington
       department: Electrical and Computer Engineering Department
       location: Seattle, WA
-      year: Sep 2023 - Present
+      year: Dec 2023 - Present
       maindescription:
-        <b>EEP545 "The Self-Driving Car, Introduction to AI for Mobile Robots"</b>
+        <b>EEP520 "Software Engineering for Embedded Applications"</b>
         <br><br>
       description:
-        - Prepared course materials on PID/MPC control, PF/EKF localization, and Djkstra/RRT/RRT*/A* path planning.
-        - Developed a Raspberry Pi 4B-based mechatronic gate featuring an ultrasound distance sensor, 16x2 LCD for IP and distance display, a servo, and a buzzer, to create a ROS service-managed obstacle for the course's final race.
-        - Assisted students in troubleshooting real-car assignments, ensuring successful project outcomes.
+        - Revised course materials on fundamentals of C/C++ and OOP, and advanced topics such as Finite State Machines.
 
     - title: Graduate Research Assistant
       institution: University of Washington + Amazon Science Hub <a href="https://www.sciencehub.uw.edu/"><i class="fa-brands fa-amazon"></i></a>
@@ -46,7 +44,20 @@
           contents:
           - Optimized pod positioning relative to the robot workstation by automating test-run procedures and refining control and MoveIt parameters, such as collision checking frequency and c-space discretization.
           - Reduced UR16e reachability failures from 20/1600 to 1/1600.
-    
+
+    - title: Graduate Teaching Assistant
+      institution: University of Washington
+      department: Electrical and Computer Engineering Department
+      location: Seattle, WA
+      year: Sep 2023 - Dec 2023
+      maindescription:
+        <b>EEP545 "The Self-Driving Car, Introduction to AI for Mobile Robots"</b>
+        <br><br>
+      description:
+        - Guided students in implementing Autonomous Vehicles fundamentals on 1/10th scale MuSHR rally car.
+        - Prepared course materials on PID/MPC control, PF/EKF localization, and Djkstra/RRT/RRT*/A* path planning.
+        - Developed a Raspberry Pi 4B-based mechatronic gate featuring an ultrasound distance sensor, 16x2 LCD for IP and distance display, a servo, and a buzzer, to create a ROS service-managed obstacle for the course's final race.
+ 
     - title: Robotics Engineer Capstone
       institution: Airbus Robotics <a href="https://mtmrobotics.com/"><i class="fa-solid fa-plane"></i></a>
       location: Seattle/Mukilteo, WA
