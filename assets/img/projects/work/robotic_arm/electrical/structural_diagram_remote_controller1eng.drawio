@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net" modified="2023-12-22T06:21:02.742Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/119.0" etag="bsV7S09tKNWn40JvypkS" version="22.1.11" type="device">
+  <diagram name="Page-1" id="G1E-o2sUnaRfctfOdFAP">
+    <mxGraphModel dx="1366" dy="766" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="QaKVlhrQLgwFmd9rYQSE-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="nMN-DpjDkvB5x4g8xDvF-2" target="QaKVlhrQLgwFmd9rYQSE-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nMN-DpjDkvB5x4g8xDvF-2" value="MCU&lt;br&gt;(STM32F103)" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Verdana;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="340" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="QaKVlhrQLgwFmd9rYQSE-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="nMN-DpjDkvB5x4g8xDvF-3" target="nMN-DpjDkvB5x4g8xDvF-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nMN-DpjDkvB5x4g8xDvF-3" value="Control Input&lt;br&gt;(Buttons / Joystick)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontFamily=Verdana;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="455" y="320" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="QaKVlhrQLgwFmd9rYQSE-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="nMN-DpjDkvB5x4g8xDvF-4" target="nMN-DpjDkvB5x4g8xDvF-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nMN-DpjDkvB5x4g8xDvF-4" value="Transceiver&lt;br&gt;(nRF24L01)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontFamily=Verdana;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="480" y="200" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="QaKVlhrQLgwFmd9rYQSE-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="nMN-DpjDkvB5x4g8xDvF-5" target="nMN-DpjDkvB5x4g8xDvF-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nMN-DpjDkvB5x4g8xDvF-5" value="Power &lt;br&gt;(DC-DC Converter)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;fontFamily=Verdana;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="187.5" y="200" width="145" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="QaKVlhrQLgwFmd9rYQSE-1" value="Display&lt;br&gt;(OLED 128x64)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontFamily=Verdana;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="190" y="320" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="QaKVlhrQLgwFmd9rYQSE-6" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="220" as="sourcePoint" />
+            <mxPoint x="185" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QaKVlhrQLgwFmd9rYQSE-7" value="&lt;b&gt;&lt;font face=&quot;Verdana&quot;&gt;6V&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="130" y="233" width="40" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
