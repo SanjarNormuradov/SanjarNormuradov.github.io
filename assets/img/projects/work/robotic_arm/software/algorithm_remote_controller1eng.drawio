@@ -1,0 +1,268 @@
+<mxfile host="app.diagrams.net" modified="2023-12-22T05:24:45.672Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/119.0" etag="Bjt4n6R_JweFZRdPU2mr" version="22.1.11" type="device">
+  <diagram name="Page-1" id="G1E-o2sUnaRfctfOdFAP">
+    <mxGraphModel dx="1366" dy="766" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="G40gRjTOsbd0e__JoBdo-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="nMN-DpjDkvB5x4g8xDvF-1" target="nMN-DpjDkvB5x4g8xDvF-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nMN-DpjDkvB5x4g8xDvF-1" value="Peripherals Initialization" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontFamily=Verdana;fontStyle=1;fontSize=12;" parent="1" vertex="1">
+          <mxGeometry x="510" y="90" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="nMN-DpjDkvB5x4g8xDvF-3" target="nMN-DpjDkvB5x4g8xDvF-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nMN-DpjDkvB5x4g8xDvF-3" value="Packet Assembly &lt;br&gt;&amp;amp; &lt;br&gt;Transmit to Arm" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontFamily=Verdana;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="510" y="570" width="146" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="nMN-DpjDkvB5x4g8xDvF-4" target="nMN-DpjDkvB5x4g8xDvF-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="388" y="670" />
+              <mxPoint x="583" y="670" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-47" value="&lt;font size=&quot;1&quot; face=&quot;Verdana&quot;&gt;&lt;b style=&quot;font-size: 12px;&quot;&gt;Corrupted Transmission&lt;/b&gt;&lt;br&gt;&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="G40gRjTOsbd0e__JoBdo-46">
+          <mxGeometry x="-0.0075" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nMN-DpjDkvB5x4g8xDvF-4" value="Wait for &lt;br&gt;Acknowledge Packet" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontFamily=Verdana;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="310" y="570" width="155" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="nMN-DpjDkvB5x4g8xDvF-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="570" y="170" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="950" y="600" />
+              <mxPoint x="950" y="170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-42" value="&lt;font face=&quot;Verdana&quot; style=&quot;font-size: 12px;&quot;&gt;&lt;b style=&quot;font-size: 12px;&quot;&gt;No changes&lt;/b&gt;&lt;br&gt;&lt;b&gt;detected&lt;br style=&quot;font-size: 12px;&quot;&gt;&lt;/b&gt;&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" vertex="1" connectable="0" parent="G40gRjTOsbd0e__JoBdo-40">
+          <mxGeometry x="-0.6458" y="-4" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="nMN-DpjDkvB5x4g8xDvF-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="761" y="600" as="sourcePoint" />
+            <mxPoint x="657" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-44" value="&lt;font size=&quot;1&quot; face=&quot;Verdana&quot;&gt;&lt;b style=&quot;font-size: 12px;&quot;&gt;Changes&lt;br&gt;detected&lt;br&gt;&lt;/b&gt;&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="G40gRjTOsbd0e__JoBdo-43">
+          <mxGeometry x="0.0962" y="3" relative="1" as="geometry">
+            <mxPoint x="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nMN-DpjDkvB5x4g8xDvF-5" value="Read Input&lt;br&gt;(Buttons / Joystick)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontFamily=Verdana;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="780" y="570" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="nMN-DpjDkvB5x4g8xDvF-6" target="G40gRjTOsbd0e__JoBdo-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="nMN-DpjDkvB5x4g8xDvF-6" target="nMN-DpjDkvB5x4g8xDvF-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nMN-DpjDkvB5x4g8xDvF-6" value="Select&lt;br&gt;Mode" style="rhombus;whiteSpace=wrap;html=1;fontFamily=Verdana;fontStyle=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="515" y="196" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="nMN-DpjDkvB5x4g8xDvF-7" target="G40gRjTOsbd0e__JoBdo-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="785" y="236" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nMN-DpjDkvB5x4g8xDvF-7" value="Work" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontFamily=Verdana;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="650" y="216" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G40gRjTOsbd0e__JoBdo-2" target="G40gRjTOsbd0e__JoBdo-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="355" y="236" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-2" value="Play" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontFamily=Verdana;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="400" y="216" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G40gRjTOsbd0e__JoBdo-5" target="G40gRjTOsbd0e__JoBdo-11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="875" y="293" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G40gRjTOsbd0e__JoBdo-5" target="G40gRjTOsbd0e__JoBdo-10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="695" y="293" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-5" value="Select&lt;br&gt;Grasp Mode" style="rhombus;whiteSpace=wrap;html=1;fontFamily=Verdana;fontStyle=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="710" y="256" width="150" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G40gRjTOsbd0e__JoBdo-6" target="G40gRjTOsbd0e__JoBdo-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G40gRjTOsbd0e__JoBdo-6" target="G40gRjTOsbd0e__JoBdo-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="G40gRjTOsbd0e__JoBdo-6" target="G40gRjTOsbd0e__JoBdo-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-6" value="Select&lt;br&gt;Arm Link" style="rhombus;whiteSpace=wrap;html=1;fontFamily=Verdana;fontStyle=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="280" y="256" width="150" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="G40gRjTOsbd0e__JoBdo-7" target="G40gRjTOsbd0e__JoBdo-21">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="490" y="450" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="250" y="420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-7" value="Shoulder" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;fontFamily=Verdana;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="200" y="350" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="G40gRjTOsbd0e__JoBdo-8" target="G40gRjTOsbd0e__JoBdo-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-8" value="Elbow" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontFamily=Verdana;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="310" y="350" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="G40gRjTOsbd0e__JoBdo-9" target="G40gRjTOsbd0e__JoBdo-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-9" value="Wrist" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontFamily=Verdana;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="410" y="350" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="G40gRjTOsbd0e__JoBdo-10" target="G40gRjTOsbd0e__JoBdo-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-10" value="Horizontal" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;fontFamily=Verdana;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="640" y="350" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="G40gRjTOsbd0e__JoBdo-11" target="G40gRjTOsbd0e__JoBdo-21">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="650" y="450" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="875" y="420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-11" value="Vertical" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontFamily=Verdana;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="830" y="350" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="G40gRjTOsbd0e__JoBdo-21" target="G40gRjTOsbd0e__JoBdo-29">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="570" y="460" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="473" y="440" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G40gRjTOsbd0e__JoBdo-21" target="G40gRjTOsbd0e__JoBdo-31">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="680" y="440" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G40gRjTOsbd0e__JoBdo-21" target="G40gRjTOsbd0e__JoBdo-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-21" value="Select&lt;br&gt;Grasp Intensity" style="rhombus;whiteSpace=wrap;html=1;fontFamily=Verdana;fontStyle=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="490" y="380" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G40gRjTOsbd0e__JoBdo-29" target="nMN-DpjDkvB5x4g8xDvF-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-29" value="Firm" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;fontFamily=Verdana;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="423" y="490" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G40gRjTOsbd0e__JoBdo-30" target="nMN-DpjDkvB5x4g8xDvF-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-30" value="Fast" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontFamily=Verdana;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="521" y="490" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G40gRjTOsbd0e__JoBdo-31" target="nMN-DpjDkvB5x4g8xDvF-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-31" value="Fragile" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontFamily=Verdana;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="630" y="488" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="G40gRjTOsbd0e__JoBdo-48">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="570" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-48" value="&lt;font face=&quot;Verdana&quot;&gt;&lt;b&gt;30ms Delay for Command Execution &lt;br&gt;by Arm&lt;/b&gt;&lt;/font&gt;" style="shape=or;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="210" y="130" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="nMN-DpjDkvB5x4g8xDvF-4" target="G40gRjTOsbd0e__JoBdo-48">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="358" y="530" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="388" y="460" />
+              <mxPoint x="170" y="460" />
+              <mxPoint x="170" y="170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-52" value="&lt;div&gt;&lt;font size=&quot;1&quot; face=&quot;Verdana&quot;&gt;&lt;b style=&quot;font-size: 12px;&quot;&gt;Succesfult Transmission&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="G40gRjTOsbd0e__JoBdo-51">
+          <mxGeometry x="-0.4767" y="-1" relative="1" as="geometry">
+            <mxPoint x="-40" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-77" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="123" y="520" width="187" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-66" value="" style="group" vertex="1" connectable="0" parent="G40gRjTOsbd0e__JoBdo-77">
+          <mxGeometry y="40" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-64" value="" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="G40gRjTOsbd0e__JoBdo-66">
+          <mxGeometry width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-65" value="&lt;div align=&quot;left&quot;&gt;&lt;font face=&quot;Verdana&quot;&gt;&lt;b&gt;&amp;nbsp;- user input&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="G40gRjTOsbd0e__JoBdo-66">
+          <mxGeometry x="30" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-69" value="" style="group" vertex="1" connectable="0" parent="G40gRjTOsbd0e__JoBdo-77">
+          <mxGeometry y="80" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-70" value="" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="G40gRjTOsbd0e__JoBdo-69">
+          <mxGeometry width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-71" value="&lt;div align=&quot;left&quot;&gt;&lt;font face=&quot;Verdana&quot;&gt;&lt;b&gt;&amp;nbsp;- packet content&lt;br&gt;&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="G40gRjTOsbd0e__JoBdo-69">
+          <mxGeometry x="30" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-72" value="" style="group" vertex="1" connectable="0" parent="G40gRjTOsbd0e__JoBdo-77">
+          <mxGeometry x="1" width="186" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-73" value="" style="group" vertex="1" connectable="0" parent="G40gRjTOsbd0e__JoBdo-72">
+          <mxGeometry width="186" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-61" value="" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="G40gRjTOsbd0e__JoBdo-73">
+          <mxGeometry width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-63" value="&lt;div align=&quot;left&quot;&gt;&lt;font face=&quot;Verdana&quot;&gt;&lt;b&gt;&amp;nbsp;- executed in program&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=1;points=[];autosize=1;strokeColor=none;fillColor=none;movable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="G40gRjTOsbd0e__JoBdo-73">
+          <mxGeometry x="30" width="156" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-74" value="" style="group" vertex="1" connectable="0" parent="G40gRjTOsbd0e__JoBdo-77">
+          <mxGeometry y="120" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-75" value="" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="G40gRjTOsbd0e__JoBdo-74">
+          <mxGeometry width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G40gRjTOsbd0e__JoBdo-76" value="&lt;div align=&quot;left&quot;&gt;&lt;font face=&quot;Verdana&quot;&gt;&lt;b&gt;&amp;nbsp;- packet content&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;(default)&lt;br&gt;&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="G40gRjTOsbd0e__JoBdo-74">
+          <mxGeometry x="30" y="-10" width="140" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
