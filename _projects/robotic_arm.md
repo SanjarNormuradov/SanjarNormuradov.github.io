@@ -14,6 +14,7 @@ Mentors:
 - Evgeniy Voloshin, Robotics Team Lead, ENPO SPELS
 
 [Thesis [Russian]](https://github.com/SanjarNormuradov/SanjarNormuradov.github.io/tree/master/assets/pdf/projects/robotic_arm/BachelorThesisRus_NormuradovSN.pdf)
+[Presentation [Russian]](https://github.com/SanjarNormuradov/SanjarNormuradov.github.io/tree/master/assets/pdf/projects/robotic_arm/BachelorThesisPresentationRus_NormuradovSN.pdf)
 
 
 ## __Situation:__
