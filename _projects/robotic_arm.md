@@ -29,6 +29,9 @@ Plus, the robotic arm, built by the company's Robotics Team leader to participat
 With the technical guidance and support of mentors and SPELS, the following were accomplished:
 
 ### 1. Mechanical Desgin & Manufacturing:
+- 3D CAD: [T-Flex CAD](https://www.tflex.com/products/tflex-cad/)
+- 3D FDM Printers: [Tevo Tornado](https://tevoup.com/products/homers-tevo-tornado-3d-printer)
+- Filaments: PLA, PETG, TPU, NYLON
 <!-- structural diagram of the process -->
 <div class="container">
     <div class="row">
@@ -123,7 +126,7 @@ But it lead to the same outcome - extension because of its elacticity, which sig
 <!-- v2 arm: rubber transmission for elbow -->
 <div class="container">
     <div class="row">
-        <div class="col align-self-center">
+        <div class="col-sm-8 align-self-center offset-sm-2">
             {% include figure.html path="assets/img/projects/work/robotic_arm/mechanical/mechanical_arm_diagram2.png" title="example image" class="img-fluid rounded z-depth-1" %}
         </div>
     </div>
@@ -136,7 +139,7 @@ But this version was far from the optimal due to its some parts with redundant m
 <!-- v3 arm: rubber band -> fishing line; 4DoF -> 5DoF -->
 <div class="container">
     <div class="row">
-        <div class="col align-self-center">
+        <div class="col-sm-10 align-self-center offset-sm-1">
             {% include figure.html path="assets/img/projects/work/robotic_arm/mechanical/mechanical_arm_diagram3.png" title="example image" class="img-fluid rounded z-depth-1" %}
         </div>
     </div>
@@ -148,7 +151,7 @@ Finally, after rigorous material science analysis to make the design durable and
 <!-- v4 arm: reduced weight -->
 <div class="container">
     <div class="row">
-        <div class="col align-self-center">
+        <div class="col-sm-10 align-self-center offset-sm-1">
             {% include figure.html path="assets/img/projects/work/robotic_arm/mechanical/mechanical_arm_diagram45.png" title="example image" class="img-fluid rounded z-depth-1" %}
         </div>
     </div>
@@ -160,25 +163,31 @@ Once the mechanical part of the robotic arm was finished, additionaly its base a
 <!-- final devices -->
 <div class="container">
     <div class="row">
-        <div class="col align-self-center">
+        <div class="col-sm-8 align-self-center offset-sm-2">
             {% include figure.html path="assets/img/projects/work/robotic_arm/device_base_controller.png" title="example image" class="img-fluid rounded z-depth-1" %}
         </div>
     </div>
 </div>
 <div class="caption">
+    Mechanical design of the Robotic Arm base (left) and the Remote Controller (right).
 </div>
 
 
 ### 2. PCB Design/Manufacturing:
+- 3D CAD: [Altium Designer](https://www.altium.com/altium-designer)
+- Technology: photolithography with 3D SLA Printer [Anycubic Photon](https://www.anycubic.com/products/anycubic-photon-s) and dry film [Ordyl Alpha 350](https://elgaeurope.it/wp-content/uploads/2021/10/Product-Data-Sheet_Alpha300.pdf).
+- Components: [STM32F103C8T6](https://www.st.com/en/microcontrollers-microprocessors/stm32f103c8.html), [nRF24L01](https://infocenter.nordicsemi.com/pdf/nRF24L01P_PS_v1.0.pdf?cp=10_4_0_0), OLED 128x64, joystick, servos (MG90s, DS3218mg), motor driver, DC-DC converters.
+
 <!-- components -->
 <div class="container">
     <div class="row">
-        <div class="col align-self-center">
+        <div class="col-sm-8 align-self-center offset-sm-2">
             {% include figure.html path="assets/img/projects/work/robotic_arm/electrical/components/components_all.png" title="example image" class="img-fluid rounded z-depth-1" %}
         </div>
     </div>
 </div>
 <div class="caption">
+    Electric Components
 </div>
 
 <!-- structural diagrams -->
@@ -193,6 +202,7 @@ Once the mechanical part of the robotic arm was finished, additionaly its base a
     </div>
 </div>
 <div class="caption">
+    Structural diagram of the Remote Controller (left) and the Robotic Arm (right).
 </div>
 
 <!-- schematics -->
@@ -204,112 +214,143 @@ Once the mechanical part of the robotic arm was finished, additionaly its base a
     </div>
 </div>
 <div class="caption">
+    Schematics of the Remote Controller (left) and the Robotic Arm (right).
 </div>
 
 <!-- PCB CAD -->
-<!-- individual PCB sides-->
+<!-- PCB layout of the remote controller -->
 <div class="container">
     <div class="row">
-        <div class="col align-self-center">
+        <div class="col-sm-10 align-self-center offset-sm-1">
             {% include figure.html path="assets/img/projects/work/robotic_arm/electrical/pcb/pcb_cad_remote_controller1234.png" title="example image" class="img-fluid rounded z-depth-1" %}
         </div>
     </div>
+</div>
+<div class="caption">
+    PCB layout of the Remote Controller: top (left) and bottom (right) layers with/out ground fill.
+</div>
+
+<!-- PCB layout of the manipulator -->
+<div class="container">
     <div class="row">
-        <div class="col align-self-center">
+        <div class="col-sm-10 align-self-center offset-sm-1">
             {% include figure.html path="assets/img/projects/work/robotic_arm/electrical/pcb/pcb_cad_manipulator1234.png" title="example image" class="img-fluid rounded z-depth-1" %}
         </div>
     </div>
 </div>
 <div class="caption">
+    PCB layout of the Robotic Arm: top (left) and bottom (right) layers with/out ground fill.
 </div>
 
 <!-- mask generation -->
+Photolithography requires positive/negative masks with the PCB layout during the exposure stage.<br>
+Additionally, there should be an external frame to align the masks before the exposure.
 <!-- alignment frame -->
 <div class="container">
     <div class="row">
-        <div class="col align-self-center">
+        <div class="col-sm-10 align-self-center offset-sm-1">
             {% include figure.html path="assets/img/projects/work/robotic_arm/electrical/pcb/pcb_mask_manipulator_mech.png" title="example image" class="img-fluid rounded z-depth-1" %}
         </div>
     </div>
 </div>
 <div class="caption">
+    Outer frame for visual alignment in the development stage of photolithography (left) and the overal PCB layout w/o ground fill (right).
 </div>
 <!-- positive -> negative mask conversion -->
 <div class="container">
     <div class="row">
-        <div class="col align-self-center">
+        <div class="col-sm-10 align-self-center offset-sm-1">
             {% include figure.html path="assets/img/projects/work/robotic_arm/electrical/pcb/pcb_mask_manipulator_pos2neg.png" title="example image" class="img-fluid rounded z-depth-1" %}
         </div>
     </div>
 </div>
 <div class="caption">
+    Top (left) and bottom (right) layers were converted from positive (2nd row) to negative (3rd row) masks due to Ordyl Alpha 350 specifications.
 </div>
 <!-- color -> black&white -->
 <div class="container">
     <div class="row">
-        <div class="col align-self-center">
+        <div class="col-sm-10 align-self-center offset-sm-1">
             {% include figure.html path="assets/img/projects/work/robotic_arm/electrical/pcb/pcb_mask_manipulator_blacknwhite.png" title="example image" class="img-fluid rounded z-depth-1" %}
         </div>
     </div>
 </div>
 <div class="caption">
+    Final masks should be black-white due to Anycubic Photon UV integrated light (wavelenght 405nm).
 </div>
 
 <!-- photolithography -->
+Photolithography process consisted of:
+- Substrate (Copper Textolite) Pre-treatment.
+- Photoresist Coating: 110℃ heated rollers.
+- Exposure: 405nm UV light; 110sec.
+- Development: 1% water solution of Na<sub>2</sub>CO<sub>3</sub>; ultrasonic bath; 30-32℃; 24.4mins.
+- Hard Bake: 150℃; 2mins.
+- Etching: hydrogen peroxide(150g) + lemon acid(30g) + NaCl(5g); 30-32℃; 50mins.
+- Via Drill/Connection: mechanical.
+- Additional Metallization/Isolation.
+
 <!-- defect development -->
 <div class="container">
     <div class="row">
-        <div class="col align-self-center">
+        <div class="col-sm-10 align-self-center offset-sm-1">
             {% include figure.html path="assets/img/projects/work/robotic_arm/electrical/photolithography/photolithogrpahy_development34.png" title="example image" class="img-fluid rounded z-depth-1" %}
         </div>
     </div>
 </div>
 <div class="caption">
+    Poor quality photoresist (not Ordyl Alpha 350) resulted in bad results during the development stage.
 </div>
 <!-- successful sample. full process -->
 <div class="container">
     <div class="row">
-        <div class="col align-self-center">
+        <div class="col-sm-10 align-self-center offset-sm-1">
             {% include figure.html path="assets/img/projects/work/robotic_arm/electrical/photolithography/photolithography_manipulator.png" title="example image" class="img-fluid rounded z-depth-1" %}
         </div>
     </div>
 </div>
 <div class="caption">
+    The entire process of photolithography and post-process treatment.
 </div>
 
-<!--  -->
+<!-- final results -->
 <div class="container">
     <div class="row">
-        <div class="col align-self-center">
+        <div class="col-sm-10 align-self-center offset-sm-1">
             {% include figure.html path="assets/img/projects/work/robotic_arm/electrical/hardware_remote_controller123.png" title="example image" class="img-fluid rounded z-depth-1" %}
         </div>
     </div>
     <div class="row">
-        <div class="col align-self-center offset-sm-1">
+        <div class="col-sm-10 align-self-center offset-sm-1">
             {% include figure.html path="assets/img/projects/work/robotic_arm/electrical/hardware_manipulator123.png" title="example image" class="img-fluid rounded z-depth-1" %}
         </div>
     </div>
 </div>
 <div class="caption">
+    The final PCBs of the Remote Controller (top) and the Robotic Arm (bottom). The Remote Controller's PCB was the first trial.
 </div>
 
 
 ### 3. Software Development:
-<!--  -->
+- Development Tool: [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html).
+- Development Language: C/C++.
+<!-- program flow for the remote controller -->
 <div class="row">
     <div class="col align-self-center">
         {% include figure.html path="assets/img/projects/work/robotic_arm/software/algorithm_remote_controller12eng.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
+    Program flow for the Remote Controller. The entire program (left) and the control input reading (right) from buttons/joysticks. 
 </div>
-<!--  -->
+<!-- program flow for the robotic arm -->
 <div class="row">
     <div class="col align-self-center offset-sm-2">
         {% include figure.html path="assets/img/projects/work/robotic_arm/software/algorithm_manipulator1eng.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
+    Program flow for the Robotic Arm.
 </div>
 
 
