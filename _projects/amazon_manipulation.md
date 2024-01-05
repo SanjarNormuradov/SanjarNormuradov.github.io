@@ -8,7 +8,7 @@ category: Work
 related_publications: 
 ---
 
-<b>Real-world Challenge & Innovative Approach:</b><br>
+#### __Real-world Challenge & Innovative Approach:__
 Revolutionizing Amazon's Fulfillment Centers, our team at the UW + Amazon Science Hub Project <a href="https://robotic-manipulation.sciencehub.uw.edu/">"Robotic Manipulation in Densely Packed Containers"</a> is pioneering the automation of the picking process.
 
 We’re navigating through the complexity of densely stocked bins with an array of items, leveraging Robotic Manipulation, Computer Vision, Sensor Systems, Human-Robot Interaction, and Reinforcement Learning to enhance efficiency and innovate supply chain management.
@@ -47,8 +47,9 @@ We’re navigating through the complexity of densely stocked bins with an array 
 </div>
 
 
+#### __Contribution:__
 During my research assistantship I have accomplished the following results:<br><br>
-<b>Synthetic Image Generation:</b><br>
+##### __Synthetic Image Generation:__
 Generated using <a href="https://github.com/owl-project/NVISII">NVISII</a> and <a href="https://blog.research.google/2022/06/scanned-objects-by-google-research.html?_hsenc=p2ANqtz-_rs8c8ci_IJOCKltH56mk4IYZRujwMvzsN0iliEWXRkQgQrs4bDYnsMcNv3-7Kd7J3yGiG">Scanned Objects by Google Research</a>.<br>
 Objects:
 - incrementally added into scenes, resembling a process of stowing
@@ -100,8 +101,8 @@ These images are used for training a novel framework <a href="https://arxiv.org/
 </div>
 
 
-<b>Evaluation in Real-World Scenarios:</b><br>
-The average precision of the model trained on the expanded 140K-image datase has been improved from 0.424 to 0.646 overall,<br>and from 0.336 to 0.573 for stacked bins.<br>
+##### __Evaluation in Real-World Scenarios:__
+The average precision of the model trained on the __expanded 140K-image dataset__ has been improved from __0.424__ to __0.646__ __overall__,<br>and from __0.336__ to __0.573__ for __stacked bins__.<br>
 <!-- case 1: success -->
 - The new model improves the performance by exluding failures to detect objects placed on top of each other by segmenting them into a single mask.
 <div class="container">
@@ -143,7 +144,7 @@ To increase the accuracy further, we need to improve segmentation and tracking, 
 So our team decided to work on improving the architecture instead of refining the training set. And now I’m investigating how to integrate Segment Anything Model (<a href="https://segment-anything.com/">SAM</a>) and/or Visaul Language Models like GPT-4.
 
 
-<br><b>Reachability Analysis:</b><br>
+##### __Reachability Analysis:__
 To find an optimal pod position relative to the robot workstation, I tested the robot's reachability, i.e. moving the end-effector from the home pose (item dropping point) to a pre-grasp pose (one random pose in front of the given bin).
 <!-- reachability test visualization -->
 <div class="container">
@@ -190,7 +191,7 @@ Later on, this modified uniform sampling method caused another issue related to 
 So I solved the issue by redefining a target link for which the path is computed in MoveIt, increasing C-space discretization and collision-checking frequency in MoveIt motion planning. 
 
 
-Overall, I came up with analysis of 800 pod poses (400 for each of two pods, with 1 cm step in x,y), and showed that the existing at that time pod position had failure in reachability = 20/1600 while there were some other with 1/1600.<br>
+Overall, I came up with analysis of 800 pod poses (400 for each of two pods, with 1 cm step in x,y), and showed that the __reachability failure__ could be __improved from 20/1600 to 1/1600__.<br>
 Also, the trend is shifted towards further distances with the pod center close to a plane with the robot's origin (y=0.470m). Corner cases include close positions, but those are with high variance and thus unstable to small disturbances in positions.
 <!-- reachability test anaylsis graph -->
 <div class="container">

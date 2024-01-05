@@ -4,7 +4,7 @@ title: TetrArm
 description: Custom simulation environment using ELMA and ENVIRO Docker images and Finite State Machines in C++
 img: assets/img/projects/course/tetra_arm/TetrArm.jpg
 redirect: https://github.com/SanjarNormuradov/TetrArm
-importance: 3
+importance: 2
 category: Course
 ---
 

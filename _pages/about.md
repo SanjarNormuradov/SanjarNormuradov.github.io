@@ -17,7 +17,7 @@ social: true  # includes social icons at the bottom of the page
 ---
 👋 Hi, I'm <br>
 💡 Robotics Research Engineer at the <a href='https://robotic-manipulation.sciencehub.uw.edu/'>UW + Amazon Robotic Manipulation Project</a> <br>
-📚 Teaching Assistant at the graduate course "Self-Driving Cars: Intro to AI for Mobile Robots" <br>
+📚 Teaching Assistant at the graduate course "Software Engineering for Embedded Applications" <br>
 👀 interested in Robotic Manipulation | Autonomous Vehicles | Embedded Systems <br>
-🌱 currently learning Computer Vision <br>
+🌱 currently learning Computer Vision / Deep Learning <br>
 🎓 doing my MS in Electrical and Computer Engineering at the University of Washington - Seattle
