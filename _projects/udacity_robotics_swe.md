@@ -7,7 +7,7 @@ importance: 1
 category: Course
 related_publications: 
 ---
-
+Notes are based on [Robotics Software Engineer Udacity Nanodegree](https://www.udacity.com/course/robotics-software-engineer--nd209) 
 ## Curriculum:
 ### 1. Introduction to Robotics
 Essential elements of Robotics:
@@ -199,6 +199,50 @@ __Markov Properties__ in terms of Localization in Robotics:
 - observation (sensor measurement) depends only on the current estimated pose, and not on the sequence of events that preceded it.
 
 __Markov Localization__, based on Markov Properties above, maintains a belief distribution (probability distribution) over the set of all possible states (robot's poses) and updates this belief according to sensor measurements and motion commands. It could be implemented depending on the specific requirements of the environment and the robot's sensors with:
-- __Kalman Filters__ (vanilla, Extended, Unscented) - a type of Bayesian filter that assumes the robot's (non-)linear dynamic model and the measurements are subject to Gaussian noise. Computationally efficient.
+- __Kalman Filters__ (standard, Extended, Unscented) - a type of Bayesian filter that assumes the robot's (non-)linear dynamic model and the measurements are subject to Gaussian noise. Computationally efficient.
 - __Histogram Filters__ - a type of non-parametric Bayesian filter that uses discretized representation of the state space. The belief about the robot's pose is represented as a probability distribution over this grid. Limited to discretized thus less flexible for continous spaces, and computationally inefficient for high-dimensional spaces.
 - __Particle Filters__ (Monte-Carlo Localization) - a type of non-parametric Bayesian filter that doesn't assume any specific distribution (like Gaussian in Kalman filter), thus can represent complex and irregular distributions modelling non-linear and non-Gaussian processes. Set of particles is used to represent the belief distribution. Computationally heavy.
+
+##### Kalman Filter
+Given the proper initial estimate and Gaussian noise in measurments and movements\
+__Pros:__
+- computationally efficient - no need for large-scale numerical simulations to make an estimate, as it uses linear equations.
+- sequential processing - data coming continuously in online systems updates sequentially the estimate at each step.
+- sensor fusion - data from multiple sensors (GPS, LIDAR, etc) weighed according to their variance (more accurate measurement is given more weight) and combined together result in Gaussian distribution with a minimized overall variance.
+
+__Cons:__
+- non-linear systems needs modifications (EKF, UKF).
+- non-Gaussian noise needs more flexible pose estimate.
+- poor initialization of the base estimate result in inaccurate future estimates.
+
+##### Gaussian Distributions:
+- univariate with __Mean__ $$ \mu $$ and __Variance__ $$ \sigma $$
+  - $$ p(x | \mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right) $$
+- multivariate
+  - $$ \text{Mean Vector: } \boldsymbol{\mu} = \begin{pmatrix} \mu_x \\ \mu_y \end{pmatrix} $$
+  - $$ \text{Covariance Matrix: } \boldsymbol{\Sigma} = \begin{pmatrix} \sigma_x^2 & \rho\sigma_x\sigma_y \\ \rho\sigma_x\sigma_y & \sigma_y^2 \end{pmatrix} $$
+  - $$ p(\mathbf{x} | \boldsymbol{\mu}, \boldsymbol{\Sigma}) = \frac{1}{2\pi |\boldsymbol{\Sigma}|^{1/2}} \exp\left(-\frac{1}{2}(\mathbf{x} - \boldsymbol{\mu})^\top \boldsymbol{\Sigma}^{-1}(\mathbf{x} - \boldsymbol{\mu})\right) $$
+
+##### Mean & Variance computation of Univariate KF:
+__State Prediction__
+- $$ \mu^{\prime} = \mu_1 + \mu_2 $$
+- $$ \sigma^{\prime \, 2} = \sigma_1^2 + \sigma_2^2 $$
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 align-self-center offset-sm-2">
+            {% include figure.html path="assets/img/projects/course/udacity_robotics_swe/kalman_state_prediction.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        </div>
+    </div>
+</div>
+
+__Measurement Update__
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 align-self-center offset-sm-2">
+            {% include figure.html path="assets/img/projects/course/udacity_robotics_swe/kalman_measurement_update.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        </div>
+    </div>
+</div>
+
+    - $$ \mu^{\prime} = \frac{r^2 \mu + \sigma^2 v}{r^2 + \sigma^2} $$
+    - $$ \sigma^{\prime \, 2} = \frac{r^2 \, \sigma^2}{r^2 + \sigma^2} $$
