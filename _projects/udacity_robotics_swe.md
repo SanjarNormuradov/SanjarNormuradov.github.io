@@ -203,28 +203,28 @@ __Markov Localization__, based on Markov Properties above, maintains a belief di
 - __Histogram Filters__ - a type of non-parametric Bayesian filter that uses discretized representation of the state space. The belief about the robot's pose is represented as a probability distribution over this grid. Limited to discretized thus less flexible for continous spaces, and computationally inefficient for high-dimensional spaces.
 - __Particle Filters__ (Monte-Carlo Localization) - a type of non-parametric Bayesian filter that doesn't assume any specific distribution (like Gaussian in Kalman filter), thus can represent complex and irregular distributions modelling non-linear and non-Gaussian processes. Set of particles is used to represent the belief distribution. Computationally heavy.
 
-##### Kalman Filter
+##### __Kalman Filter__
 Given the proper initial estimate and Gaussian noise in measurments and movements\
-__Pros:__
+Pros:
 - computationally efficient - no need for large-scale numerical simulations to make an estimate, as it uses linear equations.
 - sequential processing - data coming continuously in online systems updates sequentially the estimate at each step.
 - sensor fusion - data from multiple sensors (GPS, LIDAR, etc) weighed according to their variance (more accurate measurement is given more weight) and combined together result in Gaussian distribution with a minimized overall variance.
 
-__Cons:__
+Cons:
 - non-linear systems needs modifications (EKF, UKF).
 - non-Gaussian noise needs more flexible pose estimate.
 - poor initialization of the base estimate result in inaccurate future estimates.
 
-##### Gaussian Distributions:
+##### __Gaussian Distributions:__
 - univariate with __Mean__ $$ \mu $$ and __Variance__ $$ \sigma $$
   - $$ p(x | \mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right) $$
 - multivariate
-  - $$ \text{Mean Vector: } \boldsymbol{\mu} = \begin{pmatrix} \mu_x \\ \mu_y \end{pmatrix} $$
-  - $$ \text{Covariance Matrix: } \boldsymbol{\Sigma} = \begin{pmatrix} \sigma_x^2 & \rho\sigma_x\sigma_y \\ \rho\sigma_x\sigma_y & \sigma_y^2 \end{pmatrix} $$
+  - $$ \text{Mean Vector: } \boldsymbol{\mu} = \begin{bmatrix} \mu_x \\ \mu_y \end{bmatrix} $$
+  - $$ \text{Covariance Matrix: } \boldsymbol{\Sigma} = \begin{bmatrix} \sigma_x^2 & \rho\sigma_x\sigma_y \\ \rho\sigma_x\sigma_y & \sigma_y^2 \end{bmatrix} $$
   - $$ p(\mathbf{x} | \boldsymbol{\mu}, \boldsymbol{\Sigma}) = \frac{1}{2\pi |\boldsymbol{\Sigma}|^{1/2}} \exp\left(-\frac{1}{2}(\mathbf{x} - \boldsymbol{\mu})^\top \boldsymbol{\Sigma}^{-1}(\mathbf{x} - \boldsymbol{\mu})\right) $$
 
-##### Mean & Variance computation of Univariate KF:
-__State Prediction__
+##### __Univariate Kalman Filter: Mean & Variance computation:__
+State Prediction
 - $$ \mu^{\prime} = \mu_1 + \mu_2 $$
 - $$ \sigma^{\prime \, 2} = \sigma_1^2 + \sigma_2^2 $$
 <div class="container">
@@ -235,7 +235,7 @@ __State Prediction__
     </div>
 </div>
 
-__Measurement Update__
+Measurement Update
 <div class="container">
     <div class="row">
         <div class="col-sm-8 align-self-center offset-sm-2">
@@ -244,5 +244,75 @@ __Measurement Update__
     </div>
 </div>
 
-    - $$ \mu^{\prime} = \frac{r^2 \mu + \sigma^2 v}{r^2 + \sigma^2} $$
-    - $$ \sigma^{\prime \, 2} = \frac{r^2 \, \sigma^2}{r^2 + \sigma^2} $$
+- $$ \mu^{\prime} = \frac{r^2 \mu + \sigma^2 v}{r^2 + \sigma^2} $$
+- $$ \sigma^{\prime \, 2} = \frac{r^2 \, \sigma^2}{r^2 + \sigma^2} $$
+
+##### __Multivariate Kalman Filter: Mean & Variance computation:__
+State Prediction
+- $$ \text{Prior Mean Vector: } \mathbf{x} = \begin{bmatrix} x \\ \dot{x} \\ \ddot{x} \end{bmatrix} $$
+- $$ \text{State Prediction (noise-free): } {\begin{bmatrix} x \\ \dot{x} \\ \ddot{x} \end{bmatrix}}^\prime = \begin{bmatrix} 1 & \Delta t & \frac{1}{2} \Delta t^2 \\ 0 & 1 & \Delta t \\ 0 & 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ \dot{x} \\ \ddot{x} \end{bmatrix} $$
+- $$ \text{State Prediction Function (noise-free): } \mathbf{F} = \begin{bmatrix} 1 & \Delta t & \frac{1}{2} \Delta t^2 \\ 0 & 1 & \Delta t \\ 0 & 0 & 1 \end{bmatrix} $$
+- $$ \text{Covariance Matrix (noise-free): } \mathbf{P}^\prime = \mathbf{F} \mathbf{P} \mathbf{F}^T $$
+- $$ \text{State Prediction (with Gaussian noise): } \mathbf{x}^\prime = \mathbf{F} \mathbf{x} + \text{noise}, \ \text{noise} \sim \mathbf{N} (0, \mathbf{Q}) $$
+- $$ \text{Covariance Matrix (with Gaussian noise): } \mathbf{P}^\prime = \mathbf{F} \mathbf{P} \mathbf{F}^T + \mathbf{Q}$$
+
+Measurement Update
+- $$ \text{Actual Measurement Vector: } \mathbf{z} $$
+- $$ \begin{gather*} \text{Expected Measurement Vector: } \mathbf{H} \mathbf{x}^\prime, \\ \text{where} \ \mathbf{H} \text{ is Measurement Function, mapping the state to an observation} \end{gather*} $$
+- $$ \text{Measurement Residual Vector: } \mathbf{y} = \mathbf{z} - \mathbf{H} \mathbf{x}^\prime $$
+- $$ \text{Covariance Matrix (with Gaussian noise): } \mathbf{S}^\prime = \mathbf{H} \mathbf{P}^\prime \mathbf{H}^T + \mathbf{R} $$
+
+Kalman Gain Calculation
+- $$ \text{Kalman Gain: } \mathbf{K} = \mathbf{P}^\prime \mathbf{H}^T \mathbf{S}^{-1} $$
+
+Posterior Mean and Covariance Calculations
+- $$ \text{Posterior Mean Vector: } \hat{\mathbf{x}} = \mathbf{x}^\prime + \mathbf{K} \mathbf{y} $$
+- $$ \text{Posterior Covariance Matrix: } \hat{\mathbf{P}} = (\mathbf{I} - \mathbf{K} \mathbf{H}) \mathbf{P}^\prime $$
+
+###### __Analysis of Kalman Gain:__
+1. Perfect sensor measurements $$ \mathbf{R} = \begin{bmatrix} 0 \end{bmatrix} $$
+  - $$ \mathbf{S}^\prime = \mathbf{H} \mathbf{P}^\prime \mathbf{H}^T + \mathbf{R} = \mathbf{H} \mathbf{P}^\prime \mathbf{H}^T $$
+  - $$ \mathbf{K} = \mathbf{P}^\prime \mathbf{H}^T \mathbf{S}^{-1} = \mathbf{P}^\prime \mathbf{H}^T (\mathbf{H} \mathbf{P}^\prime \mathbf{H}^T)^{-1} = \mathbf{P}^\prime \mathbf{H}^T (\mathbf{H}^{T - 1} \mathbf{P}^{\prime - 1} \mathbf{H}^{-1}) = \mathbf{H}^{-1} $$
+  - $$ \begin{gather*} \hat{\mathbf{x}} = \mathbf{x}^\prime + \mathbf{K} \mathbf{y} = \mathbf{x}^\prime + \mathbf{H}^{-1} (\mathbf{z} - \mathbf{H} \mathbf{x}^\prime) = \mathbf{H}^{-1} \mathbf{z}, \\ \text{rely entirely on sensor measurements, state prediction is unreliable} \end{gather*} $$
+
+2. Noisy sensor measurements $$ \mathbf{R} = \begin{bmatrix} \infty \end{bmatrix} $$
+  - $$ \mathbf{S}^\prime = \mathbf{H} \mathbf{P}^\prime \mathbf{H}^T + \mathbf{R} = \begin{bmatrix} \infty \end{bmatrix} $$
+  - $$ \mathbf{K} = \mathbf{P}^\prime \mathbf{H}^T \mathbf{S}^{-1} = \begin{bmatrix} 0 \end{bmatrix} $$
+  - $$ \begin{gather*} \hat{\mathbf{x}} = \mathbf{x}^\prime + \mathbf{K} \mathbf{y} = \mathbf{x}^\prime, \\ \text{rely entirely on state prediction, sensor measurement is unreliable} \end{gather*} $$
+
+
+##### __Extended Kalman Filter__
+Non-linear motion and measurment functions can be used to update the mean vector, but need to be linearized over a small section to update the covariance matrix. Otherwise, Gaussian distribution would turn into non-Gaussian distribution, dealing with which is computationally inefficient.\
+- $$ \begin{gather*} \text{Linearization is achieved through Taylor series:} \\ \mathbf{T}(\mathbf{x}) = f(\boldsymbol{\mu}) + (\mathbf{x} - \boldsymbol{\mu})^T \, \nabla f(\boldsymbol{\mu}) + \frac{1}{2!} (\mathbf{x} - \boldsymbol{\mu})^T \, \nabla^2 f(\boldsymbol{\mu}) (\mathbf{x} - \boldsymbol{\mu}) + ... \end{gather*} $$
+- $$ \begin{gather*} \text{where } \nabla f(\mathbf{\boldsymbol{\mu}}) \text{ is the gradient of } f \text{ evaluated at } \boldsymbol{\mu}, \text{which is a Jacobian matrix } \mathbf{J} \text{ of partial derivatives:} \\ \nabla f(\mathbf{\boldsymbol{\mu}}) = \mathbf{J} = \begin{bmatrix} \frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} & \cdots & \frac{\partial f_1}{\partial x_n} \\ \frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \cdots & \frac{\partial f_2}{\partial x_n} \\ \vdots & \vdots & \ddots & \vdots \\ \frac{\partial f_m}{\partial x_1} & \frac{\partial f_m}{\partial x_2} & \cdots & \frac{\partial f_m}{\partial x_n} \end{bmatrix} \end{gather*} $$
+
+__Example:__
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 align-self-center offset-sm-2">
+            {% include figure.html path="assets/img/projects/course/udacity_robotics_swe/ekf_example_drone.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        </div>
+    </div>
+</div>
+
+Measurement Update
+- $$ \text{State Vector: } \mathbf{x} = \begin{bmatrix} \phi \\ \dot{y} \\ y \end{bmatrix}, \text{where } \phi \text{ is the roll angle} $$
+- $$ \text{Measurement Function: } h(\mathbf{x}) = \begin{bmatrix} \frac{wall - y}{ \cos{\phi}} \end{bmatrix} $$
+- $$ \text{Measurement Function Linearization: } h(\mathbf{x}) \simeq h(\mathbf{x}) + (\mathbf{x} - \boldsymbol{\mu})^T \, \nabla h(\mathbf{\boldsymbol{\mu}}) $$
+- $$ \nabla h(\mathbf{\boldsymbol{\mu}}) = \mathbf{H} = \begin{bmatrix} \frac{\partial h}{\partial \phi} & \frac{\partial h}{\partial \dot{y}} & \frac{\partial h}{\partial y} \end{bmatrix} = \begin{bmatrix} \frac{\sin{\phi}}{\cos^2{\phi}} (wall - y) & 0 & \frac{-1}{\cos{\phi}} \end{bmatrix} $$
+
+###### __Extended Kalman Filter Equations:__
+State Prediction
+- $$ \mathbf{x}^\prime = f(\mathbf{x}) $$
+- $$ \mathbf{P}^\prime = \mathbf{F} \mathbf{P} \mathbf{F}^T + \mathbf{Q}$$
+
+Measurement Update
+- $$ \mathbf{y} = \mathbf{z} - h(\mathbf{x}^\prime) $$
+- $$ \mathbf{S}^\prime = \mathbf{H} \mathbf{P}^\prime \mathbf{H}^T + \mathbf{R} $$
+
+Kalman Gain Calculation
+- $$ \mathbf{K} = \mathbf{P}^\prime \mathbf{H}^T \mathbf{S}^{-1} $$
+
+Posterior Mean and Covariance Calculations
+- $$ \hat{\mathbf{x}} = \mathbf{x}^\prime + \mathbf{K} \mathbf{y} $$
+- $$ \hat{\mathbf{P}} = (\mathbf{I} - \mathbf{K} \mathbf{H}) \mathbf{P}^\prime $$
