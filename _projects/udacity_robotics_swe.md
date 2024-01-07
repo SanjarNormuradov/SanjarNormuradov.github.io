@@ -173,6 +173,52 @@ client.call(srv);  // request a service
 
 [ROS Cheatsheet (Download PDF)](https://github.com/ros/cheatsheet/releases/download/0.0.1/ROScheatsheet_catkin.pdf)
 
+__ROS PublishAndSubscribe Class Template:__
+```
+#include <ros/ros.h>
+
+class PublishAndSubscribe
+{
+public:
+    PublishAndSubscribe()
+    {
+        // Define publisher's topic "/published_topic"
+        pub_ = n_.advertise<PUBLISHED_MESSAGE_TYPE>("/published_topic", 1);
+
+        // Define subscriber's topic "/subscribed_topic" and declare its callback function
+        sub_ = n_.subscribe("/subscribed_topic", 1, &PublishAndSubscribe::callback, this);
+    }
+
+    // Define subscriber's callback function
+    void callback(const SUBSCRIBED_MESSAGE_TYPE& input)
+    {
+        PUBLISHED_MESSAGE_TYPE output;
+        //.... do something with the input and generate the output...
+        pub_.publish(output);
+    }
+
+private:
+    ros::NodeHandle n_; 
+    ros::Publisher pub_;
+    ros::Subscriber sub_;
+
+}; // End of class PublishAndSubscribe
+
+int main(int argc, char **argv)
+{
+    // Initialize ROS node "publish_and_subscribe"
+    ros::init(argc, argv, "publish_and_subscribe");
+
+    // Create an instance of PublishAndSubscribe class that will take care of everything
+    PublishAndSubscribe SaPObject;
+
+    // Check for an incoming message to the subscriber, or for a service request for the server
+    ros::spin();
+
+    return 0;
+}
+```
+
 #### Project2: Go Chase It <a href="https://github.com/SanjarNormuradov/RoboticsSoftwareEngineer_Project2"><i class="fa-brands fa-github"></i></a>
 <!-- Gazebo world -->
 <div class="container">
@@ -203,7 +249,7 @@ __Markov Localization__, based on Markov Properties above, maintains a belief di
 - __Histogram Filters__ - a type of non-parametric Bayesian filter that uses discretized representation of the state space. The belief about the robot's pose is represented as a probability distribution over this grid. Limited to discretized thus less flexible for continous spaces, and computationally inefficient for high-dimensional spaces.
 - __Particle Filters__ (Monte-Carlo Localization) - a type of non-parametric Bayesian filter that doesn't assume any specific distribution (like Gaussian in Kalman filter), thus can represent complex and irregular distributions modelling non-linear and non-Gaussian processes. Set of particles is used to represent the belief distribution. Computationally heavy.
 
-##### __Kalman Filter__
+#### __Kalman Filter__
 Given the proper initial estimate and Gaussian noise in measurments and movements\
 Pros:
 - computationally efficient - no need for large-scale numerical simulations to make an estimate, as it uses linear equations.
@@ -214,6 +260,12 @@ Cons:
 - non-linear systems needs modifications (EKF, UKF).
 - non-Gaussian noise needs more flexible pose estimate.
 - poor initialization of the base estimate result in inaccurate future estimates.
+
+__Types of sensors used in Kalman Filter:__
+- Inertial Measurement Unit (IMU): 3-DoF Gyroscope for angular velocity + 3-DoF Accelerometer for linear acceleration measuring.<br> $$ x = \int\int g \, dt $$. The error from double integration might accumulate over time. Check the drift. 
+- Inertial and Magnetic Measurement Unit (IMMU): 6-DoF IMU + 3-DoF Magnetometer for magnetic field measuring.  
+- Rotary Encoders: measures wheels velocity and position. $$ x = \int v \, dt $$. Wheel slippage and lockup would lead to inaccurate and noisy measurments.<br> High-resolution (CPR: counts per revolution) encoders are more sensitive to slippage.
+- Vision Cameras (Stereo, RGB-D), LIDAR: measures distance to obstacles.<br> Light conditions, surface texture, max-min range, and sensor sensitivity determine the accuracy of measurements. 
 
 ##### __Gaussian Distributions:__
 - univariate with __Mean__ $$ \mu $$ and __Variance__ $$ \sigma $$
@@ -281,7 +333,7 @@ Posterior Mean and Covariance Calculations
   - $$ \begin{gather*} \hat{\mathbf{x}} = \mathbf{x}^\prime + \mathbf{K} \mathbf{y} = \mathbf{x}^\prime, \\ \text{rely entirely on state prediction, sensor measurement is unreliable} \end{gather*} $$
 
 
-##### __Extended Kalman Filter__
+#### __Extended Kalman Filter__
 Non-linear motion and measurment functions can be used to update the mean vector, but need to be linearized over a small section to update the covariance matrix. Otherwise, Gaussian distribution would turn into non-Gaussian distribution, dealing with which is computationally inefficient.\
 - $$ \begin{gather*} \text{Linearization is achieved through Taylor series:} \\ \mathbf{T}(\mathbf{x}) = f(\boldsymbol{\mu}) + (\mathbf{x} - \boldsymbol{\mu})^T \, \nabla f(\boldsymbol{\mu}) + \frac{1}{2!} (\mathbf{x} - \boldsymbol{\mu})^T \, \nabla^2 f(\boldsymbol{\mu}) (\mathbf{x} - \boldsymbol{\mu}) + ... \end{gather*} $$
 - $$ \begin{gather*} \text{where } \nabla f(\mathbf{\boldsymbol{\mu}}) \text{ is the gradient of } f \text{ evaluated at } \boldsymbol{\mu}, \text{which is a Jacobian matrix } \mathbf{J} \text{ of partial derivatives:} \\ \nabla f(\mathbf{\boldsymbol{\mu}}) = \mathbf{J} = \begin{bmatrix} \frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} & \cdots & \frac{\partial f_1}{\partial x_n} \\ \frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \cdots & \frac{\partial f_2}{\partial x_n} \\ \vdots & \vdots & \ddots & \vdots \\ \frac{\partial f_m}{\partial x_1} & \frac{\partial f_m}{\partial x_2} & \cdots & \frac{\partial f_m}{\partial x_n} \end{bmatrix} \end{gather*} $$
@@ -301,7 +353,7 @@ Measurement Update
 - $$ \text{Measurement Function Linearization: } h(\mathbf{x}) \simeq h(\mathbf{x}) + (\mathbf{x} - \boldsymbol{\mu})^T \, \nabla h(\mathbf{\boldsymbol{\mu}}) $$
 - $$ \nabla h(\mathbf{\boldsymbol{\mu}}) = \mathbf{H} = \begin{bmatrix} \frac{\partial h}{\partial \phi} & \frac{\partial h}{\partial \dot{y}} & \frac{\partial h}{\partial y} \end{bmatrix} = \begin{bmatrix} \frac{\sin{\phi}}{\cos^2{\phi}} (wall - y) & 0 & \frac{-1}{\cos{\phi}} \end{bmatrix} $$
 
-###### __Extended Kalman Filter Equations:__
+##### __Extended Kalman Filter Equations:__
 State Prediction
 - $$ \mathbf{x}^\prime = f(\mathbf{x}) $$
 - $$ \mathbf{P}^\prime = \mathbf{F} \mathbf{P} \mathbf{F}^T + \mathbf{Q}$$
@@ -316,3 +368,5 @@ Kalman Gain Calculation
 Posterior Mean and Covariance Calculations
 - $$ \hat{\mathbf{x}} = \mathbf{x}^\prime + \mathbf{K} \mathbf{y} $$
 - $$ \hat{\mathbf{P}} = (\mathbf{I} - \mathbf{K} \mathbf{H}) \mathbf{P}^\prime $$
+
+#### __Monte-Carlo Localization__
