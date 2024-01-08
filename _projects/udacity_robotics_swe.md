@@ -369,4 +369,140 @@ Posterior Mean and Covariance Calculations
 - $$ \hat{\mathbf{x}} = \mathbf{x}^\prime + \mathbf{K} \mathbf{y} $$
 - $$ \hat{\mathbf{P}} = (\mathbf{I} - \mathbf{K} \mathbf{H}) \mathbf{P}^\prime $$
 
+##### __Lab: Extended Kalman Filter:__
+
+Used ROS packages:
+- [turtlebot_gazebo](http://wiki.ros.org/turtlebot_teleop) to spawn TurtleBot 2 in a Gazebo environment.
+- [turtlebot_teleop](https://github.com/turtlebot/turtlebot) to publish robot control commands to `/cmd_vel_mux/input/teleop` ROS topic from keyboard.
+- __rviz__ to visualize the estimated robot poses.
+- [robot_pose_ekf](http://wiki.ros.org/robot_pose_ekf) to estimate the robot poses from teleop motion commands and fusion of two sensor measurements: IMU (`/mobile_base/sensors/imu_data`) and rotary encoders (`/odom`). 
+- __odom_to_trajectory__ (by Udacity) to generate trajectory paths from filtered (`/ekfpath`) and unfiltered (`/odompath`) poses.
+
+
+<div class="container">
+    <div class="row">
+        <div class="align-self-center">
+            {% include figure.html path="assets/img/projects/course/udacity_robotics_swe/ekf_lab_overall_graph.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="align-self-center">
+            {% include figure.html path="assets/img/projects/course/udacity_robotics_swe/ekf_lab_sim.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        </div>
+    </div>
+</div>
+<br>
+
 #### __Monte-Carlo Localization__
+__Pros:__
+- can be used for both local and global localization problems, while EKF is for local only.
+- not limited to Gaussian noise as EKF.
+- memory & resolution can be control through the number of particles.
+- particles represent belief distribution of where the robot might be.
+- easier to implement than EKF.
+
+__Cons:__
+- computationally and memory-wise expensive (especially to achieve high resolution).
+- poor resampling result in particle deprevation and worse resolution.
+
+For more information, check out the paper ["Robust Monte-Carlo Localization for Mobile Robots"](http://robots.stanford.edu/papers/thrun.robust-mcl.pdf)
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 align-self-center offset-sm-2">
+            {% include figure.html path="assets/img/projects/course/udacity_robotics_swe/mcl_2Dmap_with_particles.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8 align-self-center offset-sm-2">
+            {% include figure.html path="assets/img/projects/course/udacity_robotics_swe/mcl_2Dmap_with_converged_particles.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        </div>
+    </div>
+</div>
+<div class="caption">
+    Paricles with higher weight, which is defined by how close the predicted pose to the robot actual pose, are more likely to survive during the resampling process.  
+</div>
+
+###### __Types of Range Sensor (LIDAR) Noise__
+<ol type="a">
+  <li>Local Measurement Noise: caused by limited resolution of range sensors; atmespheric effects on the measurement signals.</li>
+  <li>Unexpected Objects: caused by dynamic environment (e.g. people) in static map.</li>
+  <li>Sensor Failures: caused by black, light-absorbing objects; bright sunlight; smooth surfaces such as walls, which
+effectively becomes a mirror (surface material, sensitivity of the sensor).</li>
+  <li>Random Measurements: caused by cross-talk between different sensors; phantom readings from signals bounced off walls.</li>
+</ol>
+<!-- four types of sensor noise -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 align-self-center offset-sm-3">
+            {% include figure.html path="assets/img/projects/course/udacity_robotics_swe/mcl_sensor_noise_types.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        </div>
+    </div>
+</div>
+<div class="caption">
+    $$ z^k_t \text{ - reading from } k^{th} \text{ beam sensor at time } t, \, x_t \text{ - robot position at time } t, m \text{ - map} $$
+</div>
+<!-- overall sensor model -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 align-self-center offset-sm-3">
+            {% include figure.html path="assets/img/projects/course/udacity_robotics_swe/mcl_overall_sensor_model.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8 align-self-center offset-sm-3">
+            {% include figure.html path="assets/img/projects/course/udacity_robotics_swe/mcl_sensor_model_function.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        </div>
+    </div>
+</div>
+<div class="caption">
+    Sensor Model that takes into account different types of noises.
+</div>
+
+##### __MCL Pseudo-Code__
+<!-- pseudo-code -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 align-self-center offset-sm-3">
+            {% include figure.html path="assets/img/projects/course/udacity_robotics_swe/mcl_pseudo_code.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        </div>
+    </div>
+</div>
+<div class="caption">
+    State Prediction (4) through Motion Model; Measurement Update (5) through Sensor Model; Resampling (8-11).
+</div>
+<!-- sensor model -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 align-self-center offset-sm-3">
+            {% include figure.html path="assets/img/projects/course/udacity_robotics_swe/mcl_beam_sensor_model.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        </div>
+    </div>
+</div>
+<div class="caption">
+    LIDAR Sensor Model.
+</div>
+<!-- low-variance resampler -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 align-self-center offset-sm-3">
+            {% include figure.html path="assets/img/projects/course/udacity_robotics_swe/mcl_low_variance_resampler.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        </div>
+    </div>
+</div>
+<div class="caption">
+    Low-Variance Resampler.
+</div>
+
+#### Project3: Where Am I <a href="https://github.com/SanjarNormuradov/RoboticsSoftwareEngineer_Project3"><i class="fa-brands fa-github"></i></a>
+<!-- Gazebo world -->
+<div class="container">
+    <div class="row">
+        <div class="align-self-center">
+            {% include figure.html path="assets/img/projects/course/udacity_robotics_swe/project3_where_am_i.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        </div>
+    </div>
+</div>
+<div class="caption">
+</div>
+
