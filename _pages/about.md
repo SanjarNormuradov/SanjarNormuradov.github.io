@@ -19,6 +19,6 @@ social: true  # includes social icons at the bottom of the page
 🦾 Robotics Engineer at the AI & Perception Team within <a href='https://www.agile-robots.com/en/'>Agile Robots SE</a> <br>
 👀 interested in Robotic Manipulation | Autonomous Vehicles | Embedded Systems <br>
 🌱 currently learning Computer Vision and Deep / Reinforcement Learning <br>
-💡 Former Research Assistant at the <a href='https://robotic-manipulation.sciencehub.uw.edu/'>UW + Amazon Robotic Manipulation Project</a> <br>
-📚 Former Teaching Assistant of Graduate Courses ("Introduction to Self-Driving Cars", "Software Engineering for Embedded Applications") <br>
+💡 former Research Assistant at the <a href='https://robotic-manipulation.sciencehub.uw.edu/'>UW + Amazon Robotic Manipulation Project</a> <br>
+📚 former Teaching Assistant of Graduate Courses ("Introduction to Self-Driving Cars", "Software Engineering for Embedded Applications") <br>
 🎓 completed MS in Electrical and Computer Engineering at the University of Washington - Seattle
